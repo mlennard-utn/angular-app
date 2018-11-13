@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ '_Componente_ ' +  title }}!
   </h1>
   <h2>
     Utilizamos las dos llaves para mostrar el contenido de un variable en el componente:
-    {{ cantidadLinks }}
+    {{ cantidadLinks + 3 }}
   </h2>
 </div>
 
@@ -14,6 +14,7 @@
     <a class="nav-link" routerLink="persona">Ir a persona</a>
   </li>
 </ul>
+
 
 
 <router-outlet></router-outlet>
