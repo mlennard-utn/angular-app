@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-formulario',
@@ -17,7 +18,7 @@ export class FormularioComponent implements OnInit {
     { id: 3, nacionalidad : 'aleman'  }
   ];
 
-  constructor() {
+  constructor( private _data: DataService ) {
    
   }
 
