@@ -23,6 +23,10 @@ export class FormularioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._data.nacionalidad.subscribe(
+      res => {
+        this.nacionalidades = res
+    });
   }
 
   public enviar() :void {
