@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Nacionalidad } from 'src/app/model/nacionalidad';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-formulario',
@@ -29,6 +30,14 @@ export class FormularioComponent implements OnInit {
 
   public enviar() :void {
     console.log("Se recibio nombre: " + this.nombre + " apellido: " + this.apellido + this.idNacionalidad );
+    let user : Usuario = {
+      'apellido' : this.apellido,
+      'nombre' : this.nombre,
+      'nacionalidad' : this.idNacionalidad
+    };
+    
+    this._data.login(user);
+
   }
 
 
