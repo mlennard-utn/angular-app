@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { Nacionalidad } from 'src/app/model/nacionalidad';
 
 @Component({
   selector: 'app-formulario',
@@ -12,20 +13,17 @@ export class FormularioComponent implements OnInit {
   public apellido: string = '';
   public idNacionalidad: number = 1;
 
-  public nacionalidades = [ 
-    { id: 1, nacionalidad : 'argentino'  }, 
-    { id: 2, nacionalidad : 'venezolano'  } , 
-    { id: 3, nacionalidad : 'aleman'  }
-  ];
+  public nacionalidades : Nacionalidad[] = [];
 
   constructor( private _data: DataService ) {
-   
+    
   }
 
   ngOnInit() {
-    this._data.nacionalidad.subscribe(
-      res => {
-        this.nacionalidades = res
+    this._data.getNacionalidades().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.nacionalidades = res;
     });
   }
 
