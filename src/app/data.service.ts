@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Usuario } from 'src/app/model/usuario';
 import { HttpHeaders } from '@angular/common/http';
 
@@ -8,6 +8,13 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
+
+  private nombreUsuario = new BehaviorSubject('');
+  nombre = this.nombreUsuario.asObservable();
+
+  cambiarNombre(message: string) {
+    this.nombreUsuario.next(message)
+  }
 
   constructor(private http: HttpClient ) { 
     
@@ -35,5 +42,9 @@ export class DataService {
   public getNacionalidades() :Observable<any> {
     return this.http.get('http://localhost:8080/nacionalidades');
   }
+
+
+
+
 
 }

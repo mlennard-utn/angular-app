@@ -38,6 +38,8 @@ export class FormularioComponent implements OnInit {
     
     this._data.login(user);
 
+    this._data.cambiarNombre(this.nombre + ' ' + this.apellido);
+
   }
 
 
